@@ -1,39 +1,17 @@
-import React, { Component } from 'react';
-import './App.css';
-import Signuppage from'./signup/signuppage';
-import { Router,browserHistory } from 'react-router';
-import routes from './route';
-import {Provider } from 'react-redux';
-import thunk from 'react-thunk';
-import { createStore,applyMiddleware} from 'redux';
-class App extends Component {
+import React from "react";
+import AppRouter from "./components/AppRouter/AppRouter";
+import Navbar from "./components/NavBar/Navbar";
+import styles from "./App.module.scss";
 
-  const store =createStore(
-    (state={})=>state,
-    applyMiddleware(thunk)
-  );
-
-render(){
+const App = () => {
   
+  return (
+    <div className={styles.container}>
+      <Navbar />
+      <AppRouter />
+    </div>
+  );
+};
 
-        return(
-          <Provider store={store}>
-<Router history={browserHistory} routes={routes} />
-
-
-          </Provider>
-          
-          
-          
-
-
-          
-          
-            
-        );
-   
-
-}
-}
 
 export default App;
